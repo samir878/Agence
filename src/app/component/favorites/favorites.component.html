@@ -1,0 +1,17 @@
+<div class="favorite-posts">
+    <h2>Posts favoris</h2>
+
+    <button (click)="goBackToPosts()">Retour à la liste des posts</button>
+    <ul>
+      <li *ngFor="let post of favoritePosts">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.body }}</p>
+      </li>
+    </ul>
+  
+    <!-- Message si aucun post favori n'est trouvé -->
+    <p *ngIf="favoritePosts.length === 0">Aucun post favori trouvé.</p>
+  
+
+  </div>
+  

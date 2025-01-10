@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <!-- Barre de recherche -->
+  <div class="search-bar">
+    <input type="text" placeholder="Rechercher un post" [(ngModel)]="searchQuery" (input)="filterPosts()" />
+  </div>
+
+  <!-- Bouton pour ajouter un nouveau post -->
+  <div>
+    <button [routerLink]="['/posts/new']">Ajouter un nouveau post</button>
+  </div>
+
+  <!-- Liste des posts filtrés -->
+  <div>
+    <ul>
+      <li *ngFor="let post of filteredPosts">
+        <h3>{{ post.title }}</h3>
+        <button [routerLink]="['/posts', post.id]">Voir détail</button>
+        <button (click)="toggleFavorite(post)">Ajouter aux favoris</button>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
